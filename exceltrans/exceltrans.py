@@ -1,32 +1,18 @@
-##############################################################################
- #
- # A simple example of some of the features of the XlsxWriter Python module.
- #
- # Copyright 2013-2015, John McNamara, jmcnamara@cpan.org
- #
+#!/usr/bin/env python
 
- import xlsxwriter
+# pip install xlsxwriter
+# pip install openpyxl
 
- # Create an new Excel file and add a worksheet.
- workbook = xlsxwriter.Workbook('demo.xlsx')  
- worksheet = workbook.add_worksheet()
+from openpyxl import load_workbook
 
- # Widen the first column to make the text clearer.
- worksheet.set_column('A:A', 20)
+def xlsx_read(filename):
+    wb2 = load_workbook(filename)
+    print(wb2.sheetnames)
 
- # Add a bold format to use to highlight cells.
- bold = workbook.add_format({'bold': True})
+def xlsx_writer(data):
+    print(data)
+    # write stuff to database or something...
 
- # Write some simple text.
- worksheet.write('A1', 'Hello')
+if __name__ == "__main__":
 
- # Text with formatting.
- worksheet.write('A2', 'World', bold)
-
- # Write some numbers, with row/column notation.
- worksheet.write(2, 0, 123)
- worksheet.write(3, 0, 123.456)
-
- # Insert an image.
- worksheet.insert_image('B5', 'logo.png')
- workbook.close()
+    xlsx_read('E:\\ATOM_WORK\\python\\exceltrans\\data\\ES_시나리오_한글_20200910.xlsx')
