@@ -7,6 +7,7 @@
 # pip install xlsxwriter
 # pip install openpyxl
 
+
 # Openpyxl <https://doitnow-man.tistory.com/159>
 
 from openpyxl import load_workbook
@@ -55,7 +56,7 @@ def xlsx_sheet_trans(filename, sheetname='Sheet1', key='A', fields=[]):
     print(sheet_xlsx.max_column)
     print('###################################################################')
 
-    for row in range(1, 4):
+    for row in range(1, sheet_xlsx.max_row):
 
         if sheet_xlsx.cell(row,col) == None :
             break
@@ -69,15 +70,10 @@ def xlsx_sheet_trans(filename, sheetname='Sheet1', key='A', fields=[]):
 
     return ''
 
-
-
-
-
 def xlsx_writer(data):
     print(data)
     # write stuff to database or something...
 
 if __name__ == "__main__":
-
     #xlsx_read('.\\data\\ES_시나리오_한글_20200910.xlsx')
     xlsx_sheet_trans('.\\data\\ES_시나리오_한글_20200910.xlsx','ANALYTICS','B',['B','F','G','P'])
