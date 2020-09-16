@@ -69,14 +69,14 @@ def xlsx_sheet_trans(filename, sheetname='Sheet1', cellrange=[]):
         data = sheet_xlsx[field] # tuple
         fields = [ [ col.value for col in row] for row in data[:1]]
         contents = [ [ col.value for col in row] for row in data[1:]]
-        #total_df = pd.DataFrame(contents, columns=fields)
+        df = pd.DataFrame(contents, columns=fields)
         #total_df.insert(df)
         #total_df = total_df.assign(fields = contents)
-        total_df.loc[:,fields] = contents
-        #print(df)
+        #total_df.loc[:,fields] = contents
+        print(df)
 
     wb.close()
-    return total_df
+    return df
 
 
 def xlsx_writer(data):
