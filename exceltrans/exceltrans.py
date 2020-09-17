@@ -100,7 +100,6 @@ def xlsx_sheet_trans(filename, sheetname='Sheet1', cellrange=[]):
                 time.sleep(2)
 
     wb.save(filename)
->>>>>>> 8c02dc1fb97795cbe7384692f0df948801dab709
     wb.close()
     return df
 
