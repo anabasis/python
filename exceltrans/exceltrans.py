@@ -65,14 +65,22 @@ def xlsx_sheet_trans(filename, cellrange, sheetname='Sheet1', key='A', fields=[]
     cols = [i.value for i in next(data)[1:]]
     print(cols)
 
+    cols = [i.value for i in next(data)[2:]]
+    print(cols)
+
     idx = [i.value for i in [r[0] for r in list(data)]]
     print(idx)
 
-    data = (islice(r, 1, None) for r in data)
 
+    for r in list(data) :
+        print(r)
+
+    #data = (islice(r, 1, None) for r in data)
+    #data = (cell.value for cell in [islice(r, 1, None) for r in list(data)])
+    #print(data)
 
     df = pd.DataFrame(data, index=idx, columns=cols)
-
+    print(df)
 
     #
     # # Trim()
