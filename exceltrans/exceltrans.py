@@ -87,18 +87,23 @@ def xlsx_sheet_trans(filename, sheetname='Sheet1', cellrange=[]):
     ws.title = sheetname + '_한글'
     dict = {}
 
-    for k in range(len(total_nf)) :
-        ws.cell(row=k+1, column=1).value = total_nf[k,0].value
+    #for k in range(len(total_nf)) :
+    #    ws.cell(row=k+1, column=1).value = total_nf[k,0].value
+    print(len(total_nf)) # 492 I
+    print(len(total_nf[0])) # 4 J
 
     for i in range(len(total_nf)) :
         for j in range(len(total_nf[0])) :
-            if total_nf[i,j].value in dict :
-                ws.cell(row=i+1, column=j+2).value = dict[total_nf[i,j].value]
-            else:
-                ws.cell(row=i+1, column=j+2).value = kakao_trans(total_nf[i,j].value)
-                #ws.cell(row=i+1, column=j+2).value = "한글번역"
-                dict[total_nf[i,j].value] = total_nf[i,j].value
-                time.sleep(2)
+            if j == 0 :
+                ws.cell(row=i+1, column=1).value = total_nf[i,0].value
+            else :
+                if total_nf[i,j].value in dict :
+                    ws.cell(row=i+1, column=j+1).value = dict[total_nf[i,j].value]
+                else:
+                    ws.cell(row=i+1, column=j+2).value = kakao_trans(total_nf[i,j].value)
+                    #ws.cell(row=i+1, column=j+1).value = "한글번역"
+                    dict[total_nf[i,j].value] = total_nf[i,j].value
+                    time.sleep(5)
 
     wb.save(filename)
     wb.close()
@@ -161,6 +166,6 @@ if __name__ == "__main__":
     #xlsx_read('.\\data\\ES_시나리오_한글_20200910.xlsx')
     #xlsx_sheet_trans('.\\data\\ES_시나리오_한글_20200910.xlsx','ANALYTICS',['B2:B493','F2:G493','P2:P493'])
     #main_df = xlsx_sheet_trans('.\\data\\ES_시나리오_한글_20200910.xlsx','ANALYTICS',['B2:B493','F2:G493','P2:P493'])
-    main_df = xlsx_sheet_trans('.\\data\\ES_시나리오_한글_20200910.xlsx','ANALYTICS',['B2:B493'])
+    main_df = xlsx_sheet_trans('.\\data\\ES_시나리오_한글_20200910.xlsx','ANALYTICS',['B2:B493','F2:G493','P2:P493'])
     #print(kakao_trans(sentence))
     #print(kakao_trans(sentence))
