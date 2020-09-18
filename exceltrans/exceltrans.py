@@ -101,6 +101,7 @@ def xlsx_sheet_trans(filename, sheetname='Sheet1', cellrange=[]):
                 else:
                     ws.cell(row=i+1, column=j+2).value = kakao_trans(total_nf[i,j].value)
                     #ws.cell(row=i+1, column=j+1).value = "한글번역"
+                    print(ws.cell(row=i+1, column=j+2).value)
                     dict[total_nf[i,j].value] = total_nf[i,j].value
                     time.sleep(5)
 
