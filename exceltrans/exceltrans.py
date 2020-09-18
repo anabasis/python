@@ -68,7 +68,6 @@ def xlsx_sheet_trans(filename, sheetname='Sheet1', cellrange=[]):
     print(sheet_xlsx.max_row)
     print(sheet_xlsx.max_column)
     print('#'*25)
-
     total_nf = np.empty((0))
 
     for field in cellrange :
