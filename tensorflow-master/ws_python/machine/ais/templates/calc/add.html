@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+    {% load static %}
+    <link href="{% static '/css/style.css' %}" rel="Stylesheet" type="text/css">
+
+</head>
+<body>
+<DIV class="container">
+<H1 style="margin: 20px;">더하기 계산기입니다.</H1>
+
+<UL style="margin-left: 50px;">
+  <LI  style='font-size: 26px;'>su1: {{ su1 }}</LI>
+  <LI  style='font-size: 26px;'>su2: {{ su2 }}</LI>
+  <LI  style='font-size: 26px;'>res: {{ res }}</LI>
+  <LI  style='font-size: 26px; list-style: none; margin: 20px;'><A href='/'>HOME</A></LI>
+</UL>
+</DIV>
+</body>
+</html>

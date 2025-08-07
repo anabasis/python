@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>결과</title>
+    {% load static %}
+    <link href="{% static '/css/style.css' %}" rel="Stylesheet" type="text/css">
+    <script type="text/JavaScript"
+                 src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" language="javscript">
+        function send() {
+          if ($.trim($('#data').val()).length == 0) {
+            alert('데이터를 입력해주세요');
+            return;
+          } else {
+            frm.submit();
+          }
+        }
+    </script>
+</head>
+<body>
+<DIV class="container">
+<H1>귀농귀촌 적응 예측 시스템</H1>
+<br>
+<UL>
+  <LI  style='font-size: 26px; list-style: none;'>데이터: {{data}}</LI>
+    <LI  style='font-size: 26px; list-style: none;'>귀농/귀촌 성공 확률: <span style="text-decoration: underline;">{{pct}} %</span></LI>
+    <LI  style='font-size: 26px; list-style: none;'>결과: <span style="text-decoration: underline;">{{res}}</span></LI>
+</UL>
+
+ <form id='frm' name='frm' action='/country/proc' method='GET'>
+  <br>
+  데이터<br>
+  <input type='text' id='data' name='data' value='1,0,1,6,1,0' style='width: 60%;'><br>
+  <br>
+  <button type='button' onclick="send();">실행</button>
+  <button type='button' onclick="location.href='/';">HOME</button>
+  <br><br>
+  테스트 데이터<br>
+  정착: 1,0,1,6,1,0<br>
+  실패: 0,0,0,5,1,0<br>
+</form>
+</DIV>
+</body>
+</html>
